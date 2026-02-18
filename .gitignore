@@ -1,0 +1,19 @@
+# Build artifacts
+*.o
+negative_claw
+*.dis
+
+# Local development files
+*.local.md
+PLAN.local.md
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
