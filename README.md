@@ -21,13 +21,13 @@ Inspired by the OpenClaw / ZeroClaw / PicoClaw trend of shrinking AI agents, Neg
 
 ## Size Comparison
 
-| Project | Language | Binary Size | Lines of Code |
-|---------|----------|-------------|---------------|
-| **NegativeClaw** | x86-64 ASM | ~20 KB | 4,984 |
-| MimiClaw | C (ESP32) | ~100 KB | ? |
-| ZeroClaw | Rust | 3.4 MB | ? |
-| PicoClaw | Go | ~10 MB | ? |
-| OpenClaw | TypeScript | ~100 MB | ? |
+| Project | Language | Binary Size |
+|---------|----------|-------------|
+| **NegativeClaw** | x86-64 ASM | ~20 KB |
+| MimiClaw | C (ESP32) | ~100 KB |
+| ZeroClaw | Rust | 3.4 MB |
+| PicoClaw | Go | ~10 MB |
+| OpenClaw | TypeScript | ~100 MB |
 
 ## Quick Start
 
