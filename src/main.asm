@@ -949,7 +949,8 @@ extract_content:
     jl .not_found
 
     mov rax, [rdi]
-    cmp rax, '"message'
+    mov rcx, '"message'
+    cmp rax, rcx
     jne .next_message
     mov ax, [rdi + 8]
     cmp ax, '":'

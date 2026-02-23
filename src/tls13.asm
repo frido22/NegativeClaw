@@ -584,7 +584,9 @@ build_client_hello:
     mov rax, rdi
     sub rax, r14
     sub rax, 2                      ; exclude length field itself
-    mov byte [r14], ah              ; high byte
+    mov ecx, eax
+    shr ecx, 8
+    mov byte [r14], cl              ; high byte
     mov byte [r14 + 1], al          ; low byte
 
     ; Calculate total handshake message length (minus 4-byte header)
@@ -1076,7 +1078,9 @@ send_record_plaintext:
     mov byte [rdi + 1], 0x03        ; legacy version TLS 1.0
     mov byte [rdi + 2], 0x01
     mov eax, r13d
-    mov byte [rdi + 3], ah          ; length high byte
+    mov ecx, eax
+    shr ecx, 8
+    mov byte [rdi + 3], cl          ; length high byte
     mov byte [rdi + 4], al          ; length low byte
     add rdi, 5
 
@@ -1140,7 +1144,9 @@ send_record_encrypted:
     mov byte [rdi + 2], 0x03
     ; Length = plaintext_len + 1 (content type) + 16 (tag)
     lea eax, [r15 + 16]
-    mov byte [rdi + 3], ah
+    mov ecx, eax
+    shr ecx, 8
+    mov byte [rdi + 3], cl
     mov byte [rdi + 4], al
 
     ; Encrypt: chacha20_poly1305_encrypt(out, in, in_len, aad, aad_len, key, nonce)
