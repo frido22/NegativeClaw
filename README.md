@@ -49,14 +49,11 @@ export ANTHROPIC_API_KEY="sk-ant-api03-..."
 
 That's it. No npm install, no cargo build, no virtual environments.
 
-If you're on macOS or Windows, use Docker:
+This uses x86-64 Linux syscalls directly, so it only runs on x86-64 Linux. On macOS, Windows, or ARM -- use Docker:
 
 ```bash
-docker run -it --rm -v $(pwd):/code ubuntu:latest bash
-apt update && apt install -y nasm binutils
-cd /code && make
-export ANTHROPIC_API_KEY="sk-ant-api03-..."
-./negative_claw
+docker build -t negativeclaw .
+docker run -it --rm -e ANTHROPIC_API_KEY="sk-ant-api03-..." negativeclaw
 ```
 
 ## Architecture
@@ -139,12 +136,3 @@ Because it's fun. And because a fully functional HTTPS client with TLS 1.3 can f
 ## License
 
 MIT
-
-## References
-
-- [TLS 1.3 RFC 8446](https://datatracker.ietf.org/doc/html/rfc8446)
-- [The Illustrated TLS 1.3 Connection](https://tls13.xargs.org/)
-- [ChaCha20-Poly1305 RFC 7539](https://tools.ietf.org/html/rfc7539)
-- [X25519 RFC 7748](https://tools.ietf.org/html/rfc7748)
-- [TweetNaCl](https://tweetnacl.cr.yp.to/)
-- [HKDF RFC 5869](https://datatracker.ietf.org/doc/html/rfc5869)
